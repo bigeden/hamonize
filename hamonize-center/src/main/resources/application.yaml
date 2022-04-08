@@ -1,75 +1,79 @@
-spring:
-  mvc:
-    view:
-      prefix: /WEB-INF/views/
-      suffix: .jsp
-  jpa:
-    #properties: 
-    hibernate:
-      ddl-auto: update
-    show-sql: true 
-    #servlet:
-    #  path: .do
-  # server:
-  #   encoding:
-  #     charset: UTF-8
-  #     enabled: true
-  #     force: true
-  # db1:
-  #   datasource:
-  redis:
-    host: 192.168.0.121
-    port: 6379
-    password: root
+# spring:
+#   mvc:
+#     view:
+#       prefix: /WEB-INF/views/
+#       suffix: .jsp
+#   jpa:
+#     #properties: 
+#     hibernate:
+#       ddl-auto: update
+#     show-sql: true 
+#     #servlet:
+#     #  path: .do
+#   # server:
+#   #   encoding:
+#   #     charset: UTF-8
+#   #     enabled: true
+#   #     force: true
+#   # db1:
+#   #   datasource:
+#   # redis:
+#   #   host: 192.168.0.121
+#   #   port: 6379
+#   #   password: root
   
-  session: 
-    store-type: redis
-    redis:
-      flush-mode: on-save
-      namespace: spring:session
+#   session: 
+#     store-type: redis
+#     redis:
+#       flush-mode: on-save
+#       namespace: spring:session
 
-    #   hikari:
-    #     auto-commit: true
-    #     connection-test-query: SELECT 1
-    #     minimum-idle: 10
-    #     maximum-pool-size: 50
-    #     transaction-isolation: TRANSACTION_READ_UNCOMMITTED
-    # jpa:
-    #   database-platform: org.hibernate.dialect.PostgreSQLDialect
-    #   properties:
-    #     hibernate:
-    #       format_sql: true
-    #       hbm2ddl.auto: update
-    #       implicit_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
-    #       physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
-    #   open-in-view: false
-    #   show-sql: true
-        #pool-name: pool-jiniworld_demo
-      # tomcat:
-      #   validation-query: SELECT 1
-      #   connection-properties: useUnicode=true;characterEncoding=utf-8;autoReconnection=true
-      #   max-wait: 600000
-      #   max-active: 50
-      #   max-idle: 50
-      #   min-idle: 8
-      #   test-on-borrow: true
-      #   test-while-idle: true
-      #   validation-interval: 5000
-      # sql-script-encoding: UTF-8
-  devtools:
-    livereload:
-      enabled: true
-  servlet:
-    multipart:
-      max-file-size: 100MB
-      max-request-size: 100MB
+#     #   hikari:
+#     #     auto-commit: true
+#     #     connection-test-query: SELECT 1
+#     #     minimum-idle: 10
+#     #     maximum-pool-size: 50
+#     #     transaction-isolation: TRANSACTION_READ_UNCOMMITTED
+#     # jpa:
+#     #   database-platform: org.hibernate.dialect.PostgreSQLDialect
+#     #   properties:
+#     #     hibernate:
+#     #       format_sql: true
+#     #       hbm2ddl.auto: update
+#     #       implicit_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+#     #       physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+#     #   open-in-view: false
+#     #   show-sql: true
+#         #pool-name: pool-jiniworld_demo
+#       # tomcat:
+#       #   validation-query: SELECT 1
+#       #   connection-properties: useUnicode=true;characterEncoding=utf-8;autoReconnection=true
+#       #   max-wait: 600000
+#       #   max-active: 50
+#       #   max-idle: 50
+#       #   min-idle: 8
+#       #   test-on-borrow: true
+#       #   test-while-idle: true
+#       #   validation-interval: 5000
+#       # sql-script-encoding: UTF-8
+#   devtools:
+#     livereload:
+#       enabled: true
+#   servlet:
+#     multipart:
+#       max-file-size: 100MB
+#       max-request-size: 100MB
         
 
-logging.config: classpath:logback.xml
+# logging.config: classpath:logback.xml
 
-server:
-  port: 8083
+# server:
+#   port: 8083
 
 
-attach.path: ${user.home}/uploads/
+# attach.path: ${user.home}/uploads/
 
+spring:
+  profiles:
+    active:
+    - local

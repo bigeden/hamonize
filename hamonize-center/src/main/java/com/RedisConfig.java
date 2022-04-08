@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
@@ -21,6 +22,7 @@ import lombok.RequiredArgsConstructor;
 @Configuration
 // @EnableRedisHttpSession(maxInactiveIntervalInSeconds = 1800) /* 세션 만료 시간 : 30분 */
 // @RequiredArgsConstructor
+@PropertySource(value = "file:${user.home}/env/config.properties", ignoreResourceNotFound = true)
 public class RedisConfig extends AbstractHttpSessionApplicationInitializer{
     @Value("${spring.redis.host}")
     private String host;

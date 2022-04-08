@@ -12,6 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.session.web.http.CookieSerializer;
+import org.springframework.session.web.http.DefaultCookieSerializer;
 
 
 @Configuration
@@ -50,10 +52,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
             .anyRequest()
             .authenticated();
         
-        http.formLogin().loginPage("http://192.168.0.121:8084/login");
+        http.formLogin().loginPage("http://www.hamonize.com/login");
         
         http.logout()
-            .logoutSuccessUrl("http://192.168.0.121:8084/login")
+            .logoutSuccessUrl("http://www.hamonize.com/login")
             .invalidateHttpSession(true);
 
             
@@ -62,6 +64,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         @Override
         public void configure(AuthenticationManagerBuilder auth) throws Exception {
             auth.userDetailsService(userDetailService).passwordEncoder(passwordEncoder());
+        }
+    
+        @Bean
+        public CookieSerializer cookieSerializer() {
+            DefaultCookieSerializer serializer = new DefaultCookieSerializer();
+            //serializer.setUseSecureCookie(true);
+            //serializer.setDomainNamePattern("^.+?\\.(\\w+\\.[a-z]+)$");
+            serializer.setDomainName("hamonize.com");
+            //serializer.setCookieName("JSESSIONID");
+            //serializer.setSameSite("None");
+            return serializer;
         }
     
 

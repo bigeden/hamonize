@@ -19,8 +19,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Entity
-@Table(name="tbl_admin_login_history")
+// @Entity
+// @Table(name="tbl_admin_login_history")
 public class AdminHistoryVo {
 	// 센터 관리자
 	@Id
